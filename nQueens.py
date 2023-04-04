@@ -1,3 +1,5 @@
+import sys
+
 CLAUSE_COUNTER = 0
 
 
@@ -54,8 +56,13 @@ def amo(elements):
     return clause
 
 
-f = open("sat.txt", "w")
-sat = reduce_nq_sat(4)
-f.write(sat)
-f.close()
-print("SAT problem je zapisan v datoteki sat.txt")
+if __name__ == '__main__':
+    if len(sys.argv) <= 1:
+        raise TypeError('Manjka argument')
+    else:
+        n = int(sys.argv[1])
+        f = open("sat.txt", "w")
+        sat = reduce_nq_sat(n)
+        f.write(sat)
+        f.close()
+        print("\nSAT problem je zapisan v datoteki sat.txt")
