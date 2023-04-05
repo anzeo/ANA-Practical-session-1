@@ -128,5 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-sat.txt
+sat_nq.txt
+sat_clique.txt
 kissat
+
+test_graphs
