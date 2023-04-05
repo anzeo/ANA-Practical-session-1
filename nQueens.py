@@ -61,8 +61,8 @@ if __name__ == '__main__':
         raise TypeError('Manjka argument')
     else:
         n = int(sys.argv[1])
-        f = open("sat.txt", "w")
+        f = open("sat_nq.txt", "w")
         sat = reduce_nq_sat(n)
         f.write(sat)
         f.close()
-        print("\nSAT problem je zapisan v datoteki sat.txt")
+        print("\nSAT problem je zapisan v datoteki sat_nq.txt")
