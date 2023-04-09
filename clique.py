@@ -9,7 +9,6 @@ def reduce_clique_sat(G, k):
     global CLAUSE_COUNTER
     CLAUSE_COUNTER = 0
     clause = ''
-    vertices = 0
 
     table = {v: [i * k + r for r in range(1, k + 1)] for i, v in enumerate(nx.nodes(G))}
 
@@ -22,6 +21,8 @@ def reduce_clique_sat(G, k):
     for key, v in table.items():
         clause += amo(v)
 
+    # For each r != s and i<j such that (i,j) is not an edge of G, -y_ir OR -y_js.
+    # (If there's no edge from i to j then nodes i and j cannot both be in the clique).
     for j, (key_j, v_j) in enumerate(table.items()):
         for i, (key_i, v_i) in enumerate(list(table.items())[:j]):
             if not G.has_edge(str(key_i), str(key_j)):
@@ -65,3 +66,16 @@ if __name__ == '__main__':
         f.close()
         print("\nSAT problem je zapisan v datoteki sat_clique.txt")
 
+
+# Največje klike v testnih grafih
+#
+# G1: 6
+# G2: 7
+# G3: 6
+# G4: 10
+# G5: 5
+# G6: 9
+# G7: 9
+# G8: 42
+# G9: 33
+# G10: 51
