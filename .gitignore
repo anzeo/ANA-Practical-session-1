@@ -132,4 +132,4 @@ sat_nq.txt
 sat_clique.txt
 kissat
 
-test_graphs
+maxCliqueFinder.py
