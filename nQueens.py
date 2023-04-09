@@ -58,7 +58,7 @@ def amo(elements):
 
 if __name__ == '__main__':
     if len(sys.argv) <= 1:
-        raise TypeError('Manjka argument')
+        raise TypeError('Manjka argument. Program sprejme 1 argument - dimenzije šahovnice (n)')
     else:
         n = int(sys.argv[1])
         f = open("sat_nq.txt", "w")
